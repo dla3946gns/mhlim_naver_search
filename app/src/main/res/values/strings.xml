@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">mhlim_search</string>
+    <string name="str_naver_client_id">PGdGCxgfeZfnp1Tm9AxY</string>
+    <string name="str_naver_client_secret">kghuK9MP7w</string>
+    <string name="str_search">검색</string>
+    <string name="str_recent_search">최근 검색</string>
+    <string name="str_recent_search_history">최근 검색 이력</string>
+</resources>
