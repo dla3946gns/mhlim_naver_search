@@ -25,6 +25,7 @@
             android:layout_weight="2"
             android:lines="1"
             android:inputType="text"
+            android:imeOptions="actionSearch"
             android:paddingLeft="@dimen/size_5"/>
 
         <androidx.constraintlayout.widget.ConstraintLayout

@@ -4,9 +4,9 @@ import androidx.lifecycle.LiveData
 
 class SearchWordRepository(private val searchWordDao: SearchDataDao) {
 
-    val getAllData: LiveData<MutableList<SearchData>> = searchWordDao.getAllData()
+    val getAllData: LiveData<MutableList<RecentWordData>> = searchWordDao.getAllData()
 
-    suspend fun addSearchWord(searchData: SearchData) {
+    suspend fun addSearchWord(searchData: RecentWordData) {
         searchWordDao.addSearchWord(searchData)
     }
 

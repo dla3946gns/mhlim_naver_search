@@ -3,9 +3,11 @@ package com.example.mhlim_search.data
 import androidx.room.Entity
 import androidx.room.PrimaryKey
 
-data class MovieFeed(val items: MutableList<SearchData>)
+data class MovieFeed(
+    val total: Int,
+    val items: MutableList<SearchData>
+)
 
-@Entity(tableName = "search_table")
 data class SearchData (
     val title : String?,
     val link : String?,
@@ -15,6 +17,4 @@ data class SearchData (
     val director : String?,
     val actor : String?,
     val userRating : String?
-) {
-    @PrimaryKey(autoGenerate = true) var id: Int = 0
-}
+)

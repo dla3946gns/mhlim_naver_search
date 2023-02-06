@@ -2,21 +2,23 @@ package com.example.mhlim_search.adapter
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import android.widget.AdapterView.OnItemClickListener
 import androidx.recyclerview.widget.RecyclerView.Adapter
 import com.example.mhlim_search.R
-import com.example.mhlim_search.data.SearchData
+import com.example.mhlim_search.data.RecentWordData
+import com.example.mhlim_search.`interface`.ItemClickListener
 import com.example.mhlim_search.viewholder.RecentSearchDataListViewHolder
 
 class RecentSearchDataListAdapter: Adapter<RecentSearchDataListViewHolder>() {
 
-    private var dataList = mutableListOf<SearchData>()
-
+    private var dataList = mutableListOf<RecentWordData>()
+    private lateinit var mOnItemClickListener: ItemClickListener
     override fun onCreateViewHolder(
         parent: ViewGroup,
         viewType: Int
     ): RecentSearchDataListViewHolder {
         val view = LayoutInflater.from(parent.context).inflate(R.layout.item_recent_search_history, parent, false)
-        return RecentSearchDataListViewHolder(parent.context, view)
+        return RecentSearchDataListViewHolder(parent.context, view, mOnItemClickListener)
     }
 
     override fun getItemCount(): Int {
@@ -27,8 +29,12 @@ class RecentSearchDataListAdapter: Adapter<RecentSearchDataListViewHolder>() {
         holder.bindData(dataList[position])
     }
 
-    fun setData(searchDataList: MutableList<SearchData>) {
+    fun setData(searchDataList: MutableList<RecentWordData>) {
         dataList = searchDataList
+    }
+
+    fun setOnItemClickListener(onItemClickListener: ItemClickListener) {
+        mOnItemClickListener = onItemClickListener
     }
 
 }

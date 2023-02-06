@@ -1,13 +1,16 @@
-package com.example.mhlim_search.data
+package com.example.mhlim_search.viewmodel
 
 import android.app.Application
 import androidx.lifecycle.*
+import com.example.mhlim_search.data.RecentWordData
+import com.example.mhlim_search.data.SearchWordDatabase
+import com.example.mhlim_search.data.SearchWordRepository
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
 class SearchWordViewModel(application: Application): AndroidViewModel(application) {
 
-    val getAllData: LiveData<MutableList<SearchData>>
+    val getAllData: LiveData<MutableList<RecentWordData>>
     private val repository: SearchWordRepository
 
     init {
@@ -16,7 +19,7 @@ class SearchWordViewModel(application: Application): AndroidViewModel(applicatio
         getAllData = repository.getAllData
     }
 
-    fun addSearchWord(searchData: SearchData) {
+    fun addSearchWord(searchData: RecentWordData) {
         viewModelScope.launch(Dispatchers.IO) {
             repository.addSearchWord(searchData)
         }

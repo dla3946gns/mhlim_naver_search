@@ -5,7 +5,7 @@ import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
 
-@Database(entities = [SearchData::class], version = 1, exportSchema = false)
+@Database(entities = [RecentWordData::class], version = 1, exportSchema = false)
 abstract class SearchWordDatabase: RoomDatabase() {
 
     abstract fun searchWordDao(): SearchDataDao

@@ -8,11 +8,10 @@ import androidx.room.Query
 
 @Dao
 interface SearchDataDao {
-
     @Insert(onConflict = OnConflictStrategy.IGNORE)
-    suspend fun addSearchWord(searchData: SearchData)
+    suspend fun addSearchWord(searchData: RecentWordData)
 
-    @Query("SELECT * FROM search_table ORDER BY id ASC")
-    fun getAllData(): LiveData<MutableList<SearchData>>
+    @Query("SELECT * FROM recent_search_table")
+    fun getAllData(): LiveData<MutableList<RecentWordData>>
 
 }
