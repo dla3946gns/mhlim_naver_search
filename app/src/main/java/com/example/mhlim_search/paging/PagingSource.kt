@@ -3,6 +3,7 @@ package com.example.mhlim_search.paging
 import android.util.Log
 import androidx.paging.PagingState
 import com.example.mhlim_search.data.SearchData
+import com.example.mhlim_search.`interface`.SearchResultValidListener
 import com.example.mhlim_search.network.ApiRequest
 
 class PagingSource(

@@ -22,9 +22,8 @@ class SearchListItemDecoration(val context: Context): ItemDecoration() {
 
         if (position == 0) {
             outRect.top = context.resources.getDimensionPixelSize(R.dimen.size_20)
-        } else {
-            outRect.bottom = context.resources.getDimensionPixelSize(R.dimen.size_20)
         }
+        outRect.bottom = context.resources.getDimensionPixelSize(R.dimen.size_20)
     }
 
 }

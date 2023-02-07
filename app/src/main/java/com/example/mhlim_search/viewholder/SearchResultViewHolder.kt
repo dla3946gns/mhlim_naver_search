@@ -1,7 +1,12 @@
 package com.example.mhlim_search.viewholder
 
+import android.content.Context
+import android.graphics.drawable.ColorDrawable
+import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
+import com.example.mhlim_search.R
+import com.example.mhlim_search.activity.MainActivity
 import com.example.mhlim_search.data.SearchData
 import com.example.mhlim_search.databinding.ItemSearchDataListBinding
 import com.example.mhlim_search.`interface`.ItemClickListener
@@ -21,6 +26,9 @@ class SearchResultViewHolder(
             binding.tvUserRating.text = String.format("평점 : %s", item.userRating)
             Glide.with(binding.ivThumbnail.context)
                 .load(it.image)
+                .placeholder(R.color.fail_color)
+                .error(R.color.fail_color)
+                .fallback(R.color.fail_color)
                 .into(binding.ivThumbnail)
 
             binding.llMovie.setOnClickListener {

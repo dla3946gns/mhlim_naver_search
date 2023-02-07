@@ -11,4 +11,5 @@
     <color name="light_gray">#d3d3d3</color>
     <color name="mint">#00ffff</color>
     <color name="middle_purple">#9370db</color>
+    <color name="fail_color">#006633</color>
 </resources>

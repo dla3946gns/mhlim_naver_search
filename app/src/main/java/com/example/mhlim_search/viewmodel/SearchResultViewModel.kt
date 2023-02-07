@@ -9,6 +9,7 @@ import androidx.paging.PagingConfig
 import androidx.paging.PagingData
 import androidx.paging.cachedIn
 import com.example.mhlim_search.data.SearchData
+import com.example.mhlim_search.`interface`.SearchResultValidListener
 import com.example.mhlim_search.network.RetrofitAPI
 import com.example.mhlim_search.paging.PagingSource
 import kotlinx.coroutines.flow.Flow

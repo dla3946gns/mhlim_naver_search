@@ -13,6 +13,7 @@
         android:orientation="horizontal"
         android:paddingStart="@dimen/size_10"
         android:paddingEnd="@dimen/size_10"
+        android:foreground="?android:selectableItemBackground"
         app:layout_constraintTop_toTopOf="parent">
 
         <ImageView
