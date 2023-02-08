@@ -3,7 +3,7 @@
 
 
 ### 1. 검색 결과 리스트
-<img src="/res/readme/search_result.jpg" width="180px" height="320px"></img>
+<img src="search_result.jpg" width="180px" height="320px"></img>
 
 ### 2. 최근 검색 이력 리스트
 ![recent_search_words](./res/readme/recent_search_words.jpg)
