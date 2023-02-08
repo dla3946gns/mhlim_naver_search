@@ -13,15 +13,15 @@ import android.widget.TextView
 import android.widget.TextView.OnEditorActionListener
 import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
+import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.app.AppCompatDelegate
 import androidx.core.view.isVisible
-import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.lifecycleScope
-import androidx.lifecycle.map
 import androidx.paging.CombinedLoadStates
 import androidx.paging.LoadState
+import androidx.paging.PagingData
 import com.example.mhlim_search.R
 import com.example.mhlim_search.adapter.SearchResultLoadStateAdapter
 import com.example.mhlim_search.adapter.SearchResultPagingAdapter
@@ -30,20 +30,23 @@ import com.example.mhlim_search.databinding.ActivityMainBinding
 import com.example.mhlim_search.decoration.SearchListItemDecoration
 import com.example.mhlim_search.`interface`.ItemClickListener
 import com.example.mhlim_search.utils.BackPressFinishHandler
-import com.example.mhlim_search.viewmodel.SearchDataViewModelFactory
 import com.example.mhlim_search.viewmodel.SearchResultViewModel
 import com.example.mhlim_search.viewmodel.SearchWordViewModel
 import kotlinx.coroutines.*
 import kotlinx.coroutines.flow.collectLatest
-import okhttp3.*
 
+/**
+ * 검색 결과 액티비티
+ *
+ * @author Myeong Hoon Lim on 2023-02-08
+ */
 class MainActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityMainBinding
     private lateinit var pagingAdapter: SearchResultPagingAdapter
 
-    private lateinit var searchWordViewModel: SearchWordViewModel       // 검색어 Room DB 저장용 ViewModel
-    private lateinit var searchResultViewModel: SearchResultViewModel   // 검색 결과 ViewModel
+    private lateinit var searchWordViewModel: SearchWordViewModel              // 검색어 Room DB 저장용 ViewModel
+    private val searchResultViewModel: SearchResultViewModel by viewModels()   // 검색 결과 ViewModel
 
     private lateinit var inputMethodManager: InputMethodManager
     private lateinit var backPressFinishHandler: BackPressFinishHandler
@@ -89,7 +92,6 @@ class MainActivity : AppCompatActivity() {
      */
     private fun initViewModel() {
         searchWordViewModel = ViewModelProvider(this, SearchWordViewModel.Factory(application)).get(SearchWordViewModel::class.java)
-        searchResultViewModel = ViewModelProvider(this, SearchDataViewModelFactory())[SearchResultViewModel::class.java]
     }
 
     /**
@@ -101,6 +103,7 @@ class MainActivity : AppCompatActivity() {
     private fun initOnClickListener() {
         binding.clSearch.setOnClickListener {
             if (binding.etSearch.text != null && binding.etSearch.text.toString().isNotEmpty()) {
+                pagingAdapter.submitData(lifecycle, PagingData.empty())
                 searchMovie(binding.etSearch.text.toString())
                 hideKeyboard()
             } else {
@@ -118,6 +121,7 @@ class MainActivity : AppCompatActivity() {
         binding.etSearch.setOnEditorActionListener(object : OnEditorActionListener {
             override fun onEditorAction(v: TextView?, actionId: Int, event: KeyEvent?): Boolean {
                 if (actionId == EditorInfo.IME_ACTION_SEARCH) {
+                    pagingAdapter.submitData(lifecycle, PagingData.empty())
                     searchMovie(binding.etSearch.text.toString())
                     hideKeyboard()
                     return true
@@ -158,10 +162,10 @@ class MainActivity : AppCompatActivity() {
 
             binding.rvSearchList.setHasFixedSize(true)
 
-            searchResultViewModel.searchWord = word
+            searchResultViewModel.setQuery(word)
+            searchResultViewModel.requestResult()
 
             lifecycleScope.launch {
-                pagingAdapter.refresh()
                 searchResultViewModel.data.collectLatest {
                     pagingAdapter.submitData(it)
                 }
@@ -241,6 +245,7 @@ class MainActivity : AppCompatActivity() {
         if (result.resultCode == RESULT_OK) {
             val recentSearchWord = result.data?.getStringExtra(IntentData.RECENT_SEARCH_WORD_INTENT.intentKey).toString()
             binding.etSearch.setText(recentSearchWord.toCharArray(), 0, recentSearchWord.length)
+            pagingAdapter.submitData(lifecycle, PagingData.empty())
             searchMovie(recentSearchWord)
         }
     }

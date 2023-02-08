@@ -9,6 +9,11 @@ import com.example.mhlim_search.databinding.ItemSearchDataListBinding
 import com.example.mhlim_search.`interface`.ItemClickListener
 import com.example.mhlim_search.viewholder.SearchResultViewHolder
 
+/**
+ * 검색 결과 페이징 아답터
+ *
+ * @author Myeong Hoon Lim on 2023-02-08
+ */
 class SearchResultPagingAdapter: PagingDataAdapter<SearchData, SearchResultViewHolder>(diffCallback) {
 
     private lateinit var mItemClickListener: ItemClickListener

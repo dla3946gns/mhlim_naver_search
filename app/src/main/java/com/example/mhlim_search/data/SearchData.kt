@@ -1,5 +1,10 @@
 package com.example.mhlim_search.data
 
+/**
+ * 영화 검색 결과 데이터 리스트
+ *
+ * @author Myeong Hoon Lim on 2023-02-08
+ */
 data class MovieFeed(
     val total: Int,
     val items: MutableList<SearchData>

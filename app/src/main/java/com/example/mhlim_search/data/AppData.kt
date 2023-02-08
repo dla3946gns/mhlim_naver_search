@@ -1,5 +1,10 @@
 package com.example.mhlim_search.data
 
+/**
+ * 공통 앱 데이터 변수 모음
+ *
+ * @author Myeong Hoon Lim on 2023-02-08
+ */
 enum class AppData(
     val data: String
 ) {

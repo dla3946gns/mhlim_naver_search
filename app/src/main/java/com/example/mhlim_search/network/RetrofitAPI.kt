@@ -11,6 +11,11 @@ import retrofit2.http.GET
 import retrofit2.http.Query
 import java.io.IOException
 
+/**
+ * Retrofit API 호출 object
+ *
+ * @author Myeong Hoon Lim on 2023-02-08
+ */
 object RetrofitAPI {
     private const val BASE_URL = "https://openapi.naver.com/"
 

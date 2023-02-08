@@ -8,6 +8,11 @@ import com.example.mhlim_search.data.SearchWordRepository
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
+/**
+ * 최근 검색 이력 ViewModel Class
+ *
+ * @author Myeong Hoon Lim on 2023-02-08
+ */
 class SearchWordViewModel(application: Application): AndroidViewModel(application) {
 
     val getAllData: LiveData<MutableList<RecentWordData>>

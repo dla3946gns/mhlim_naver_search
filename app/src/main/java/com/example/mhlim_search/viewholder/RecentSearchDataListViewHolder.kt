@@ -9,6 +9,11 @@ import com.example.mhlim_search.R
 import com.example.mhlim_search.data.RecentWordData
 import com.example.mhlim_search.`interface`.ItemClickListener
 
+/**
+ * 최근 검색 이력 리스트 ViewHolder
+ *
+ * @author Myeong Hoon Lim on 2023-02-08
+ */
 class RecentSearchDataListViewHolder(
     val context: Context,
     itemView: View,

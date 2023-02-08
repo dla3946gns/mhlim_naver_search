@@ -6,6 +6,11 @@ import androidx.room.Insert
 import androidx.room.OnConflictStrategy
 import androidx.room.Query
 
+/**
+ * 최근 검색 이력 데이터베이스 Dao
+ *
+ * @author Myeong Hoon Lim on 2023-02-08
+ */
 @Dao
 interface SearchDataDao {
 

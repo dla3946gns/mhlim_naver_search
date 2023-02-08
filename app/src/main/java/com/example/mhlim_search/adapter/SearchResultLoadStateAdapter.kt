@@ -8,6 +8,11 @@ import androidx.paging.LoadStateAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.example.mhlim_search.databinding.ItemLoadStateBinding
 
+/**
+ * 검색 결과 리스트 페이징 LoadStateAdapter
+ *
+ * @author Myeong Hoon Lim on 2023-02-08
+ */
 class SearchResultLoadStateAdapter(
     private val retry: () -> Unit
 ): LoadStateAdapter<SearchResultLoadStateAdapter.LoadStateViewHolder>() {

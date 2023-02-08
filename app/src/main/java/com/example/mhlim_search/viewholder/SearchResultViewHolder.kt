@@ -1,17 +1,18 @@
 package com.example.mhlim_search.viewholder
 
-import android.content.Context
-import android.graphics.drawable.ColorDrawable
-import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.mhlim_search.R
-import com.example.mhlim_search.activity.MainActivity
 import com.example.mhlim_search.data.SearchData
 import com.example.mhlim_search.databinding.ItemSearchDataListBinding
 import com.example.mhlim_search.`interface`.ItemClickListener
 import com.example.mhlim_search.removeHtml
 
+/**
+ * 검색 결과 리스트 ViewHolder
+ *
+ * @author Myeong Hoon Lim on 2023-02-08
+ */
 class SearchResultViewHolder(
     private val binding: ItemSearchDataListBinding,
     private val itemClickListener: ItemClickListener

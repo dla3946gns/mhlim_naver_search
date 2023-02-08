@@ -19,8 +19,8 @@ import com.example.mhlim_search.viewmodel.SearchWordViewModel
 
 /**
  * 최근 검색 이력 Activity
- * <p>
  *
+ * @author Myeong Hoon Lim on 2023-02-08
  */
 class RecentSearchActivity: AppCompatActivity() {
 

@@ -8,6 +8,11 @@ import androidx.recyclerview.widget.RecyclerView.ItemDecoration
 import com.example.mhlim_search.R
 import org.checkerframework.checker.interning.qual.CompareToMethod
 
+/**
+ * 검색 결과 리스트 Decoration Class
+ * 
+ * @author Myeong Hoon Lim on 2023-02-08
+ */
 class SearchListItemDecoration(val context: Context): ItemDecoration() {
 
     override fun getItemOffsets(

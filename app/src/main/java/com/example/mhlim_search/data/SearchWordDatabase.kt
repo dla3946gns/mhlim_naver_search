@@ -5,6 +5,11 @@ import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
 
+/**
+ * 최근 검색 이력 Room Database 클래스
+ *
+ * @author Myeong Hoon Lim on 2023-02-08
+ */
 @Database(entities = [RecentWordData::class], version = 1, exportSchema = false)
 abstract class SearchWordDatabase: RoomDatabase() {
 

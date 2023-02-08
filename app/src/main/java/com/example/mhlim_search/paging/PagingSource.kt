@@ -1,11 +1,14 @@
 package com.example.mhlim_search.paging
 
-import android.util.Log
 import androidx.paging.PagingState
 import com.example.mhlim_search.data.SearchData
-import com.example.mhlim_search.`interface`.SearchResultValidListener
 import com.example.mhlim_search.network.ApiRequest
 
+/**
+ * 검색 결과 리스트 PagingSource Class
+ *
+ * @author Myeong Hoon Lim on 2023-02-08
+ */
 class PagingSource(
     private val service: ApiRequest,
     private val word: String

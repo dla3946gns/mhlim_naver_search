@@ -8,6 +8,11 @@ import android.widget.Toast
 import androidx.core.app.ActivityCompat
 import com.example.mhlim_search.R
 
+/**
+ * 홈에서 뒤로가기 클릭 시 토스트 노출시키는 Handler
+ *
+ * @author Myeong Hoon Lim on 2023-02-08
+ */
 class BackPressFinishHandler(private val activity: Activity) {
 
     private val BACK_KEY_DURATION: Long = 3000
