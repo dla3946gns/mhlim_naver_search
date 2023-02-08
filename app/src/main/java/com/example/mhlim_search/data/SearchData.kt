@@ -1,8 +1,5 @@
 package com.example.mhlim_search.data
 
-import androidx.room.Entity
-import androidx.room.PrimaryKey
-
 data class MovieFeed(
     val total: Int,
     val items: MutableList<SearchData>

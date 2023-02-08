@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">mhlim_search</string>
+    <string name="app_name">SearchMon</string>
     <string name="str_naver_client_id">PGdGCxgfeZfnp1Tm9AxY</string>
     <string name="str_naver_client_secret">kghuK9MP7w</string>
     <string name="str_search">검색</string>

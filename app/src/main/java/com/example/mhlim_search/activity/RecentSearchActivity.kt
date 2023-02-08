@@ -10,12 +10,18 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.RecyclerView
 import com.example.mhlim_search.R
 import com.example.mhlim_search.adapter.RecentSearchDataListAdapter
+import com.example.mhlim_search.data.IntentData
 import com.example.mhlim_search.data.RecentWordData
 import com.example.mhlim_search.databinding.ActivityMainBinding
 import com.example.mhlim_search.databinding.ActivityRecentSearchWordBinding
 import com.example.mhlim_search.`interface`.ItemClickListener
 import com.example.mhlim_search.viewmodel.SearchWordViewModel
 
+/**
+ * 최근 검색 이력 Activity
+ * <p>
+ *
+ */
 class RecentSearchActivity: AppCompatActivity() {
 
     private val RECENT_WORDS_LIMIT_SIZE = 10
@@ -34,7 +40,7 @@ class RecentSearchActivity: AppCompatActivity() {
             override fun onItemClick(str: String) {
                 // 검색 페이지에서 검색
                 val intent = Intent(this@RecentSearchActivity, MainActivity::class.java).apply {
-                    putExtra("recent_search_word", str)
+                    putExtra(IntentData.RECENT_SEARCH_WORD_INTENT.intentKey, str)
                 }
                 setResult(RESULT_OK, intent)
                 if (!isFinishing) {

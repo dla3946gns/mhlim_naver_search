@@ -239,7 +239,7 @@ class MainActivity : AppCompatActivity() {
     // 최근 검색어 클릭 후 검색 결과를 가져오기 위한 ActivityResultLauncher
     private val onActivityResult = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
         if (result.resultCode == RESULT_OK) {
-            val recentSearchWord = result.data?.getStringExtra("recent_search_word").toString()
+            val recentSearchWord = result.data?.getStringExtra(IntentData.RECENT_SEARCH_WORD_INTENT.intentKey).toString()
             binding.etSearch.setText(recentSearchWord.toCharArray(), 0, recentSearchWord.length)
             searchMovie(recentSearchWord)
         }

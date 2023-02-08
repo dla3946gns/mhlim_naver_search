@@ -1,5 +1,6 @@
 package com.example.mhlim_search.network
 
+import com.example.mhlim_search.data.AppData
 import com.example.mhlim_search.data.MovieFeed
 import okhttp3.Interceptor
 import okhttp3.OkHttpClient
@@ -35,8 +36,8 @@ object RetrofitAPI {
         @Throws(IOException::class)
         override fun intercept(chain: Interceptor.Chain): Response = with(chain) {
             val newRequest = request().newBuilder()
-                .addHeader("X-Naver-Client-Id", "PGdGCxgfeZfnp1Tm9AxY")
-                .addHeader("X-Naver-Client-Secret", "kghuK9MP7w")
+                .addHeader(AppData.NAVER_CLIENT_ID_HEADER_KEY.data, AppData.NAVER_CLIENT_ID_HEADER_VALUE.data)
+                .addHeader(AppData.NAVER_CLIENT_SECRET_HEADER_KEY.data, AppData.NAVER_CLIENT_SECRET_HEADER_VALUE.data)
                 .build()
             proceed(newRequest)
         }

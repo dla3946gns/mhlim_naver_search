@@ -20,7 +20,7 @@ abstract class SearchWordDatabase: RoomDatabase() {
                     instance = Room.databaseBuilder(
                         context.applicationContext,
                         SearchWordDatabase::class.java,
-                        "search_word_database"
+                        AppData.ROOM_DATABASE_SEARCH_WORD.data
                     ).build()
                 }
             }
